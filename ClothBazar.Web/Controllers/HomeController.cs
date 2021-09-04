@@ -11,6 +11,7 @@ namespace ClothBazar.Web.Controllers
         public ActionResult Index()
         {
             return View();
+            // Initial Test
         }
 
         public ActionResult About()
