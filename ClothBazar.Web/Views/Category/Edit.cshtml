@@ -1,0 +1,21 @@
+﻿@model ClothBazar.Entities.Category
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form method="post">
+
+    <label>ID</label>
+    @*Below line of code Hidden will won't display this field data in UI.*@
+    <input type="hidden" name="ID" value="@Model.ID" />
+    <label>Name</label>
+    <input name="Name" value="@Model.Name" />
+    <br />
+    <label>Description</label>
+    <input name="Description" value="@Model.Description" />
+    <br />
+    <button type="submit">Update</button>
+</form>
