@@ -5,14 +5,11 @@
 
 <h2>Index</h2>
 
-
-
-
-    <form method="post" id="Create">
+    <form method="post">
         <input name="Search" id="SearchTxt" />
         <button type="button" id="SearchBtn">Search</button>
     </form>
-    <button id="newBtn">New</button>
+    <button id="NewBtn">New</button>
 <div>
     <table>
         <tr>
@@ -46,33 +43,35 @@
      
         $.ajax({
             type: "GET",
-            url: "/Product/ProductTable",
+            url: "/Product/Create",
             data: {
                 search: searchText
             }
         })
       .done(function (response) {
-          $("#tableContainer").html(response);
+          $("#TabeContainer").html(response);  // This DisplayBlock is available in Index view
       })
       .fail(function (data) {
           alert("Fail");
       })
     });
 
-    $("#newBtn").click(function () {
-       
-        $.ajax({
-            type: "GET",
-            url: "/Product/Create",
-            data: $("#")
+
+    $("#NewBtn").click(function () {
+
+                $.ajax({
+                    //type: "GET",
+                    // This will interact with Create method of the ProductController of type GetType
+                    url: "/Product/Create",
         })
-      .done(function (response) {
-          $("#actionContainer").html(response);
-      })
-      .fail(function (data) {
-          alert("Fail");
-      })
-    });
-  
-   
+            .done(function (response) {
+                $("#ActionContainer").html(response); // This ActionBlock is available in Index view
+
+        })
+        .fail(function () {
+            alert("Creating Form got Failed");
+        })
+
+
+    })
 </script>

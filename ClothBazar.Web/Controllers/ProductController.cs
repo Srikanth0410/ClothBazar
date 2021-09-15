@@ -38,7 +38,11 @@ namespace ClothBazar.Web.Controllers
         [HttpPost]
         public ActionResult Create(Product product)
         {
+            
+            if(product.Name != null&& product.Description!= null&& product.price>=0)
+            { 
             prodService.SaveProduct(product);
+            }
             //  return View();
             return RedirectToAction("ProductTable");
         }
