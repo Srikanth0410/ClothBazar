@@ -8,11 +8,11 @@
 
 
 
-    <form method="post">
+    <form method="post" id="Create">
         <input name="Search" id="SearchTxt" />
         <button type="button" id="SearchBtn">Search</button>
     </form>
-    <button>New</button>
+    <button id="newBtn">New</button>
 <div>
     <table>
         <tr>
@@ -52,7 +52,22 @@
             }
         })
       .done(function (response) {
-          $("#DisplayBlock").html(response);
+          $("#tableContainer").html(response);
+      })
+      .fail(function (data) {
+          alert("Fail");
+      })
+    });
+
+    $("#newBtn").click(function () {
+       
+        $.ajax({
+            type: "GET",
+            url: "/Product/Create",
+            data: $("#")
+        })
+      .done(function (response) {
+          $("#actionContainer").html(response);
       })
       .fail(function (data) {
           alert("Fail");
